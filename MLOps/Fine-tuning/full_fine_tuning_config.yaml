@@ -37,22 +37,31 @@ optim : "adamw_torch_fused"
 # 로그를 기록할 주기를 스텝 단위로 설정
 logging_steps : 10
 
+# 모델 체크포인트 저장
 save_strategy : "epoch"
 
+# 과적합 방지 및 성능 향상
 weight_decay : 0.01
 
+# 클리핑의 입곗값을 지정
 max_grad_norm : 0.5
 
+#학습률 웜업 기법
 warmup_ratio : 0.03
 
+# bfloat16의 정밀도 사용
 bf16 : ture
 
+# tf32형식 활성화
 tf32 : ture
 
+# 그레이디언트 체크포인팅 기법 활성화
 gradient_checkpointing : ture
 
+# GPU 효율 증가
 fsdp : "full_shard auto_wrap"
 
+# 분산처리의 효율성 증가
 fsdp_config :
   backward_prefetch : "backward_pre"
   forward_prefetch : "false"
